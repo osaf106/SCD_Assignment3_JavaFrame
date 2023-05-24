@@ -4,8 +4,7 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -19,14 +18,15 @@ public class Doctor_Details {
         JTextField DocId,FullName,FatherName,Email,contact,Address,Qualif,Joining;
         JComboBox genderData,bloodData;
         JButton save,update,delete,New,GetData;
-        JPanel panel1,panel2;
+        
         public Doctor_Details()
         {
-            try
-            {
+            
              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(800,800);
+            frame.setSize(500, 550);
             frame.setLocationRelativeTo(null);
+             frame.setResizable(false);
+            
             
             
             LabelId = new JLabel();
@@ -42,6 +42,8 @@ public class Doctor_Details {
             LabeldatePatt = new JLabel();
             
             LabelId.setText("Doctor ID");
+            LabelId.setBounds(20, 20, 80, 25);
+            
             Labelname.setText("Full Name");
             Labelfather.setText("Father's Name");
             Labelemail.setText("Email-id");
@@ -53,7 +55,8 @@ public class Doctor_Details {
             LabelDateOfJoining.setText("Date Of Joining");
             LabeldatePatt.setText("YYYY-MM-DD");
             
-            DocId = new JTextField(15);
+            DocId = new JTextField();
+            DocId.setBounds(140, 20, 200, 25);
             FullName = new JTextField(15);
             FatherName = new JTextField(15);
             Email = new JTextField(15);
@@ -77,46 +80,19 @@ public class Doctor_Details {
             bloodData.addItem("O+");
             bloodData.addItem("O-");
             
-            panel1 = new JPanel();
-            panel1.setSize(500, 800);
-           
-            panel1.add(LabelId);
-            panel1.add(DocId);
             
-            panel1.add(Labelname);
-            panel1.add(FullName);
             
-            panel1.add(Labelfather);
-            panel1.add(FatherName);
+            save= new JButton("Save");
+            update = new JButton("Update");
+            delete = new JButton("Delete");
+            New = new JButton("New");
+            GetData = new JButton("GetData");
             
-            panel1.add(Labelemail);
-            panel1.add(Email);
-            
-            panel1.add(Labelnumber);
-            panel1.add(contact);
-            
-            panel1.add(Labeladdress);
-            panel1.add(Address);
-            
-            panel1.add(Labelqualification);
-            panel1.add(Qualif);
-            
-            panel1.add(Labelgender);
-            panel1.add(genderData);
-            
-            panel1.add(LabelbloodGroup);
-            panel1.add(bloodData);
-            
-            panel1.add(LabelDateOfJoining);
-            panel1.add(Joining);
-            panel1.add(LabeldatePatt);
-            
-            frame.add(panel1,BorderLayout.CENTER);
+            frame.getContentPane().setLayout(null);
+            frame.getContentPane().add(LabelId);
+            frame.getContentPane().add(DocId);
             frame.setVisible(true);
-            }catch(Exception e)
-            {
-                System.out.print(e.getMessage());
-            }
+            
            }
         
 }
