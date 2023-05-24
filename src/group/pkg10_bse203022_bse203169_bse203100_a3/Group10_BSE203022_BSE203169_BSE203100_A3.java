@@ -15,7 +15,7 @@ public class Group10_BSE203022_BSE203169_BSE203100_A3 {
      */
        public static void main(String[] args) {
         // TODO code application logic here
-//        Login_Page l = new Login_Page();
+             Login_Page l = new Login_Page();
             Doctor_Details d= new Doctor_Details();
     }
     
