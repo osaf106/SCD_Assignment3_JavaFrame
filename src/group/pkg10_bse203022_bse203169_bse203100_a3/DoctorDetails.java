@@ -4,17 +4,66 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Osaf Ahmed
  */
 public class DoctorDetails extends javax.swing.JFrame {
 
-    /**
+/**
      * Creates new form DoctorDetails
      */
+        String DoctorID ="";
+        String DoctorName ="";
+        String FatherName ="";
+        String Email ="";
+        int contactno=0;
+        String Address ="";
+        String Qualification="";
+        String Gender ="";
+        String BloodGroup ="";
+        String DateOfJoining="";
+        
+        DefaultTableModel model = new DefaultTableModel();
+        Object arr[];
+        public void addcolumn()
+        {
+            model.addColumn("DoctorID");
+            model.addColumn("DoctorName");
+            model.addColumn("FatherName");
+            model.addColumn("Email");
+            model.addColumn("contactno");
+            model.addColumn("Address");
+            model.addColumn("Qualification");
+            model.addColumn("Gender");
+            model.addColumn("BloodGroup");
+            model.addColumn("DateOfJoining");
+            jTable1.setModel(model);
+         }
+        public void addrow(Object[] obj)
+        {
+            arr=obj;
+            model.addRow(arr);
+            jTable1.setModel(model);
+        }
+        public void clearScren()
+        {
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+                   
+        }
     public DoctorDetails() {
         initComponents();
+        addcolumn();
+        clearScren();
     }
 
     /**
@@ -54,9 +103,12 @@ public class DoctorDetails extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -124,27 +176,32 @@ public class DoctorDetails extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 255, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Save");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 110, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 110, -1));
 
         jButton2.setBackground(new java.awt.Color(102, 153, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Update");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 110, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 110, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Delete");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 110, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 110, -1));
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setText("New");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 110, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 110, -1));
 
         jButton5.setBackground(new java.awt.Color(0, 153, 153));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setText("GetData");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 110, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 110, -1));
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setText("Back To Main");
@@ -153,10 +210,25 @@ public class DoctorDetails extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 110, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 110, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Doctor Id", "Doctor Name", "Father Name", "Email", "Contact no", "Address", "Qulafication", "Gender", "bloodGroup", "Date of joining"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 520, 330));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/group/pkg10_bse203022_bse203169_bse203100_a3/Images/DoctorDetail.jpg"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 770, 540));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 520, 580));
 
         pack();
         setLocationRelativeTo(null);
@@ -170,6 +242,27 @@ public class DoctorDetails extends javax.swing.JFrame {
         doc.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DOA_for_DoctorDetails Doa = new DOA_for_DoctorDetails();
+        DoctorID = jTextField2.getText();
+        DoctorName = jTextField3.getText();
+        FatherName = jTextField4.getText();
+        Email = jTextField5.getText();
+        contactno = Integer.parseInt(jTextField6.getText());
+        Address = jTextField7.getText();
+        Qualification = jTextField8.getText();
+        Gender = jComboBox1.getSelectedItem().toString();
+        BloodGroup = jComboBox2.getSelectedItem().toString();
+        DateOfJoining = jTextField9.getText();
+        Doa.DoctorDetailsInsert(DoctorID, DoctorName, FatherName, Email, contactno, Address, Qualification, Gender, BloodGroup, DateOfJoining);
+        arr= new Object[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
+        addrow(arr);
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +321,8 @@ public class DoctorDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
