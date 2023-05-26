@@ -4,6 +4,8 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Osaf Ahmed
@@ -88,11 +90,23 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainPage mn = new MainPage();
-        mn.setVisible(true);
-        LoginPage login = new LoginPage();
-        login.setVisible(false);
-        dispose();
+        DAO_for_LoginPage dao = new DAO_for_LoginPage();
+        String username = jTextField1.getText();
+        String password = jPasswordField1.getText();
+        boolean check = dao.LoginAccess(username, password);
+        
+        if(check==true)
+        {
+            MainPage mn = new MainPage();
+            mn.setVisible(true);
+            LoginPage login = new LoginPage();
+            login.setVisible(false);
+            dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "UserName or password are incorrect");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
