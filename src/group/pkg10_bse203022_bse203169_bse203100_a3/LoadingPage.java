@@ -5,6 +5,7 @@
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -107,7 +108,7 @@ public class LoadingPage extends javax.swing.JFrame {
             }
             
             
-        }catch(Exception e)
+        }catch(HeadlessException | InterruptedException e)
         {
             
         }
