@@ -54,6 +54,11 @@ public class LoginPage extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 194, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(102, 255, 102));
@@ -76,10 +81,19 @@ public class LoginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         LoginPage login = new LoginPage();
         login.setVisible(false);
-       dispose();
+        dispose();
         SignUp sign = new SignUp();
         sign.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MainPage mn = new MainPage();
+        mn.setVisible(true);
+        LoginPage login = new LoginPage();
+        login.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

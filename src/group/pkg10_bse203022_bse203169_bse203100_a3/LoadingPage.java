@@ -83,7 +83,7 @@ public class LoadingPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-          LoginPage login = new LoginPage();
+          MainPage main = new MainPage();
             LoadingPage load = new LoadingPage();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -101,7 +101,7 @@ public class LoadingPage extends javax.swing.JFrame {
                 load.jLabel2.setText(i+"%");
                 if(i==100)
                 {
-                    JOptionPane.showMessageDialog(login, "Sucessfully load");
+                    JOptionPane.showMessageDialog(main, "Sucessfully load");
                 }
                 
             }
@@ -113,7 +113,7 @@ public class LoadingPage extends javax.swing.JFrame {
         }
         load.setVisible(false);
         load.dispose();
-        login.setVisible(true);
+        main.setVisible(true);
         
     }
 
