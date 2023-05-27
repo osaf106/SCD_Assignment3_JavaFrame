@@ -4,7 +4,6 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
-import java.awt.HeadlessException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -12,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Osaf Ahmed
+ * @author Saqi
  */
 public class RoomInformation extends javax.swing.JFrame {
 
@@ -254,6 +253,7 @@ public class RoomInformation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
