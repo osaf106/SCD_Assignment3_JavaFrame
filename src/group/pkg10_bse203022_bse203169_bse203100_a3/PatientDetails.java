@@ -4,6 +4,8 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Osaf Ahmed
@@ -13,6 +15,16 @@ public class PatientDetails extends javax.swing.JFrame {
     /**
      * Creates new form DoctorDetails
      */
+        String PatientID ="";
+        String PatientName ="";
+        String FatherName ="";
+        String Email ="";
+        int contactno=0;
+        String Address ="";
+        int Age = 0;
+        String Gender ="";
+        String BloodGroup ="";
+        String DateOfJoining="";
     public PatientDetails() {
         initComponents();
     }
@@ -120,6 +132,11 @@ public class PatientDetails extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 255, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 110, -1));
 
         jButton2.setBackground(new java.awt.Color(102, 153, 0));
@@ -130,6 +147,11 @@ public class PatientDetails extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 110, -1));
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
@@ -172,6 +194,30 @@ public class PatientDetails extends javax.swing.JFrame {
         pt.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PatientID = jTextField2.getText();
+        PatientName = jTextField3.getText();
+        FatherName = jTextField4.getText();
+        Email = jTextField5.getText();
+        contactno = Integer.parseInt(jTextField6.getText());
+        Address = jTextField7.getText();
+        Age = Integer.parseInt(jTextField8.getText());
+        Gender = jComboBox1.getSelectedItem().toString();
+        BloodGroup = jComboBox2.getSelectedItem().toString();
+        DateOfJoining = jTextArea1.getText();
+        DAO_for_PatientDetails doa= new DAO_for_PatientDetails();
+        doa.DoctorDetailsInsert(PatientID, PatientName, FatherName, Email, contactno, Address, Age, Gender, BloodGroup, DateOfJoining);
+        JOptionPane.showMessageDialog(null,"Success Fully Added");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         
+            
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
