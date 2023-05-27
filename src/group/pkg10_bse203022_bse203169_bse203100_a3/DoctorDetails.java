@@ -4,6 +4,7 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -63,7 +64,7 @@ public class DoctorDetails extends javax.swing.JFrame {
     public DoctorDetails() {
         initComponents();
         addcolumn();
-        clearScren();
+        
     }
 
     /**
@@ -191,6 +192,11 @@ public class DoctorDetails extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 110, -1));
 
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
@@ -274,8 +280,26 @@ public class DoctorDetails extends javax.swing.JFrame {
             
         DOA_for_DoctorDetails Doa = new DOA_for_DoctorDetails();
         String[] GetDoaArray = Doa.DoctorGetEachData();
-        addrow(GetDoaArray);
+            addrow(GetDoaArray);
+        
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(jTable1.getSelectedColumnCount()==1)
+        {
+            model.removeRow(jTable1.getSelectedRow());
+            DOA_for_DoctorDetails Doa = new DOA_for_DoctorDetails();
+            int row = jTable1.getSelectedRow();
+            String value = (jTable1.getModel().getValueAt(row,0).toString());
+            Doa.DeleteRow(value);
+            JOptionPane.showMessageDialog(null,"Table row delete");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Table is empty");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

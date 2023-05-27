@@ -5,6 +5,7 @@
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
 import java.awt.HeadlessException;
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +22,7 @@ import javax.swing.JOptionPane;
  * @author Osaf Ahmed
  */
 public class DOA_for_DoctorDetails {
-    
+       
     public void DoctorDetailsInsert(String DoctorID,String DoctorName,String FatherName,String Email,int ContactNo,String Address,String Qualification,String Gender,String BloodGroup,String DateOfJoining)
     {
         try
@@ -46,8 +49,9 @@ public class DOA_for_DoctorDetails {
         
     }
     
-    public String [] DoctorGetEachData()
+    public String[] DoctorGetEachData()
     {
+//        ArrayList<String> ReturnList = new ArrayList<>();
          String ReturnForTable[] = null;
         try
         {
@@ -71,15 +75,44 @@ public class DOA_for_DoctorDetails {
                 String BloodGroup =rs.getString("BloodGroup");
                 String DateOfJoining=rs.getString("DateOfJoining");
                 
-                 ReturnForTable = new String[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
-                 return ReturnForTable;
+                  ReturnForTable = new String[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
+//                 ReturnList.add(DoctorID);
+//                 ReturnList.add(DoctorName);
+//                 ReturnList.add(FatherName);
+//                 ReturnList.add(Email);
+//                 ReturnList.add(contactno);
+//                 ReturnList.add(Address);
+//                 ReturnList.add(Qualification);
+//                 ReturnList.add(Gender);
+//                 ReturnList.add(BloodGroup);
+//                 ReturnList.add(DateOfJoining);
+//                 List add = Arrays.asList(ReturnForTable);
+                 rs.next();
+                
+                
             }
-           
+           return ReturnForTable;
             
         }catch(HeadlessException | ClassNotFoundException | SQLException e)
         {
             e.getMessage();
         }
         return ReturnForTable;
+    }
+    public void DeleteRow(String Value)
+    {
+         try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
+            
+            String query = "DELETE FROM doctor_details WHERE DoctorID="+Value;
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.executeQuery();   
+            
+        }catch(HeadlessException | ClassNotFoundException | SQLException e)
+        {
+            e.getMessage();
+        }
     }
 }
