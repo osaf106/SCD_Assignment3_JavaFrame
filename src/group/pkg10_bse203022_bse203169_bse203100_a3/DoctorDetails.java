@@ -201,6 +201,11 @@ public class DoctorDetails extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 153, 153));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setText("GetData");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 110, -1));
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
@@ -259,10 +264,18 @@ public class DoctorDetails extends javax.swing.JFrame {
         Doa.DoctorDetailsInsert(DoctorID, DoctorName, FatherName, Email, contactno, Address, Qualification, Gender, BloodGroup, DateOfJoining);
         arr= new Object[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
         addrow(arr);
-        
+        clearScren();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            // TODO add your handling code here:
+            
+        DOA_for_DoctorDetails Doa = new DOA_for_DoctorDetails();
+        String[] GetDoaArray = Doa.DoctorGetEachData();
+        addrow(GetDoaArray);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

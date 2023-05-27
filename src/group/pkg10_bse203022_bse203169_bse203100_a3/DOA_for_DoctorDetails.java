@@ -7,6 +7,9 @@ package group.pkg10_bse203022_bse203169_bse203100_a3;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -43,4 +46,40 @@ public class DOA_for_DoctorDetails {
         
     }
     
+    public String [] DoctorGetEachData()
+    {
+         String ReturnForTable[] = null;
+        try
+        {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
+            String query = "select * from doctor_details";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next())
+            {
+                 String DoctorID = rs.getString("DoctorID");
+                String DoctorName =rs.getString("DoctorName");
+                String FatherName =rs.getString("FatherName");
+                String Email =rs.getString("Email");
+                String contactno = String.valueOf(rs.getInt("ContactNo"));
+                String Address =rs.getString("Address");
+                String Qualification=rs.getString("Qualification");
+                String Gender =rs.getString("Gender");
+                String BloodGroup =rs.getString("BloodGroup");
+                String DateOfJoining=rs.getString("DateOfJoining");
+                
+                 ReturnForTable = new String[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
+                 return ReturnForTable;
+            }
+           
+            
+        }catch(HeadlessException | ClassNotFoundException | SQLException e)
+        {
+            e.getMessage();
+        }
+        return ReturnForTable;
+    }
 }
