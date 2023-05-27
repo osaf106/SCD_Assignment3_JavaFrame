@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class DAO_for_PatientDetails {
     
-   public void DoctorDetailsInsert(String PatientID,String PatientName,String FatherName,String Email,int ContactNo,String Address,int Age,String Gender,String BloodGroup,String Infromation)
+   public void PatientDetailsInsert(String PatientID,String PatientName,String FatherName,String Email,int ContactNo,String Address,int Age,String Gender,String BloodGroup,String Infromation)
    {
        try
        {

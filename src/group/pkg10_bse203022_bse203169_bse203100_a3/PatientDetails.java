@@ -208,7 +208,7 @@ public class PatientDetails extends javax.swing.JFrame {
         BloodGroup = jComboBox2.getSelectedItem().toString();
         DateOfJoining = jTextArea1.getText();
         DAO_for_PatientDetails doa= new DAO_for_PatientDetails();
-        doa.DoctorDetailsInsert(PatientID, PatientName, FatherName, Email, contactno, Address, Age, Gender, BloodGroup, DateOfJoining);
+        doa.PatientDetailsInsert(PatientID, PatientName, FatherName, Email, contactno, Address, Age, Gender, BloodGroup, DateOfJoining);
         JOptionPane.showMessageDialog(null,"Success Fully Added");
     }//GEN-LAST:event_jButton1ActionPerformed
 

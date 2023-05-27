@@ -4,6 +4,9 @@
  */
 package group.pkg10_bse203022_bse203169_bse203100_a3;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Osaf Ahmed
@@ -13,10 +16,94 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
     /**
      * Creates new form PatientUpdateOrDelete
      */
+        String PatientID ="";
+        String PatentName ="";
+        String Gender ="";
+        String BloodGroup ="";
+        String Disease="";
+        String RoomNo ="";
+        String DoctorId="";
+        String DoctorName ="";
+        String DischargeDate ="";
+        String AdmintDate="";
+        String RoomNumber ="";
+        String NoOfDetails="";
+        String TotalRoomCharges ="";
+        int ServiceCharges =0;
+        String BillDate ="";
+        String PaymentMode="";
+        int TotalCharges =0;
+        String BillNumber ="";
+         DefaultTableModel model = new DefaultTableModel();
+        Object arr[];
+         public void addcolumn()
+        {
+            model.addColumn("PatientID");
+            model.addColumn("PatientName");
+            model.addColumn("Service Charges");
+            
+            jTable1.setModel(model);
+         }
+          public void addrow(Object[] obj)
+          {
+                arr=obj;
+                model.addRow(arr);
+                jTable1.setModel(model);
+          }
+          public void clearScren()
+         {
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField8.setText("");
+            jTextField9.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jTextField13.setText("");
+            jTextField14.setText("");
+            jTextField15.setText("");
+                   
+         }
+          String id,name;
+          int service;
     public PatientUpdateOrDelete() {
         initComponents();
+        addcolumn();
+        RoomNo =jTextField6.getText();
+        if(!RoomNo.isEmpty())
+        {
+            jTextField4.setText(RoomNo);
+        }
     }
-
+    public void PatientUpdateOrDeleteOfID(String PatientID) 
+    {
+        this.id = PatientID;  
+    }
+    public String PatientUpdateOrDeleteOfID() 
+    {
+       return id;  
+    }
+    public void PatientUpdateOrDeleteOfName(String PatentName) 
+    {
+        this.name=PatentName;
+    }
+    public String PatientUpdateOrDeleteOfName() 
+    {
+       return name;  
+    }
+    public void PatientUpdateOrDeleteOfService(int ServiceCharges) 
+    {
+        this.service=ServiceCharges;
+    }
+    public int PatientUpdateOrDeleteOfService() 
+    {
+       return service;  
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,6 +220,11 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 255, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 110, -1));
 
         jButton2.setBackground(new java.awt.Color(102, 153, 0));
@@ -153,6 +245,11 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 153, 153));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setText("GetData");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 110, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -235,6 +332,47 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
         pt.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DAO_for_PatientUpdateOrDelete dao = new DAO_for_PatientUpdateOrDelete();
+        PatientID =jTextField1.getText();
+        PatentName =jTextField2.getText();
+        Gender =jComboBox1.getSelectedItem().toString();
+        BloodGroup =jComboBox2.getSelectedItem().toString();
+        Disease=jTextField5.getText();
+        RoomNo =jTextField6.getText();
+        DoctorId=jTextField7.getText();
+        DoctorName =jTextField8.getText();
+        DischargeDate =jTextField9.getText();
+        AdmintDate=jTextField3.getText();
+        RoomNumber =jTextField6.getText();
+        
+        NoOfDetails=jTextField10.getText();
+        TotalRoomCharges =jTextField11.getText();
+        ServiceCharges =Integer.parseInt(jTextField12.getText());
+        BillDate =jTextField13.getText();
+        PaymentMode=jComboBox3.getSelectedItem().toString();
+        TotalCharges =Integer.parseInt(jTextField14.getText());
+        BillNumber =jTextField15.getText();
+        dao.PatientUpdateOrDeleteInsert(PatientID, PatentName, Gender, BloodGroup, Disease, RoomNo, DoctorId, DoctorName, DischargeDate, AdmintDate, RoomNumber, NoOfDetails, TotalRoomCharges, ServiceCharges, BillDate, PaymentMode, TotalCharges, BillNumber);
+        arr = new Object[]{PatientID, PatentName, ServiceCharges};
+        addrow(arr);
+        clearScren();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        DAO_for_PatientUpdateOrDelete doa = new DAO_for_PatientUpdateOrDelete();
+        List<PatientUpdateOrDelete> data = doa.PatientUpdateOrDeleteGetData();
+        for(PatientUpdateOrDelete display : data)
+        {
+            arr = new Object[]{display.PatientUpdateOrDeleteOfID(),display.PatientUpdateOrDeleteOfName(),display.PatientUpdateOrDeleteOfService()};
+            addrow(arr);
+            clearScren();
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
