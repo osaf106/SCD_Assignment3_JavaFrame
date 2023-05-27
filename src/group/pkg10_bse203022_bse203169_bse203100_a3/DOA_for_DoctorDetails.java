@@ -76,17 +76,7 @@ public class DOA_for_DoctorDetails {
                 String DateOfJoining=rs.getString("DateOfJoining");
                 
                   ReturnForTable = new String[]{DoctorID,DoctorName,FatherName,Email,contactno,Address,Qualification,Gender,BloodGroup,DateOfJoining};
-//                 ReturnList.add(DoctorID);
-//                 ReturnList.add(DoctorName);
-//                 ReturnList.add(FatherName);
-//                 ReturnList.add(Email);
-//                 ReturnList.add(contactno);
-//                 ReturnList.add(Address);
-//                 ReturnList.add(Qualification);
-//                 ReturnList.add(Gender);
-//                 ReturnList.add(BloodGroup);
-//                 ReturnList.add(DateOfJoining);
-//                 List add = Arrays.asList(ReturnForTable);
+
                  rs.next();
                 
                 

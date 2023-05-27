@@ -75,5 +75,21 @@ public class DAO_for_PatientUpdateOrDelete {
          
           return getCollection;
      }
+     public void DeleteRow(String Value)
+    {
+         try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
+            
+            String query = "DELETE FROM patientupdateordelete WHERE PatientID="+Value;
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.executeQuery();   
+            
+        }catch(HeadlessException | ClassNotFoundException | SQLException e)
+        {
+            e.getMessage();
+        }
+    }
       
 }
