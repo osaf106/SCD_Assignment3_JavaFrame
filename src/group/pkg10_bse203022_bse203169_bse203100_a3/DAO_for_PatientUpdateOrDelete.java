@@ -27,7 +27,7 @@ public class DAO_for_PatientUpdateOrDelete {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
             Statement st = con.createStatement();
-            String query = "INSERT INTO `patientupdateordelete`(`PatientID`, `PatentName`, `Gender`, `BloodGroup`, `Disease`, `RoomNo`, `DoctorId`, `DoctorName`, `DischargeDate`, `AdmintDate`, `RoomNumber`, `NoOfDetails`, `TotalRoomCharges`, `ServiceCharges`, `BillDate`, `PaymentMode`, `TotalCharges`, `BillNumber`)"
+            String query = "INSERT INTO patientupdateordelete(PatientID, PatentName, Gender, BloodGroup, Disease, RoomNo, DoctorId, DoctorName, DischargeDate, AdmintDate, RoomNumber, NoOfDetails, TotalRoomCharges, ServiceCharges, BillDate, PaymentMode, TotalCharges, BillNumber)"
                             +"Values('"+PatientID+"','"+PatentName+"','"+Gender+"','"+BloodGroup+"','"+Disease+"','"+RoomNo+"','"+DoctorId+"','"+DoctorName+"','"+BloodGroup+"','"+DischargeDate+"','"+AdmintDate+"','"+RoomNumber+"','"+NoOfDetails+"','"+TotalRoomCharges+"','"+ServiceCharges+"','"+BillDate+"','"+PaymentMode+"','"+TotalCharges+"','"+BillNumber+"')";
             
             if(JOptionPane.showConfirmDialog(null, "Do You sure to Update Yur Details", "Update form", JOptionPane.YES_OPTION) == JOptionPane.YES_NO_OPTION) 
