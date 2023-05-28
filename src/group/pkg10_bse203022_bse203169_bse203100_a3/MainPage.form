@@ -291,6 +291,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Admit Inforamtion"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
@@ -318,6 +321,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Services"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

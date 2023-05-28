@@ -122,6 +122,11 @@ public class MainPage extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(204, 204, 0));
         jButton5.setText("Admit Inforamtion");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 255));
@@ -132,6 +137,11 @@ public class MainPage extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(204, 204, 0));
         jButton6.setText("Services");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,6 +296,24 @@ public class MainPage extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        DoctorPatientInfo dp = new DoctorPatientInfo();
+        MainPage mn = new MainPage();
+        dp.setVisible(true);
+        mn.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        ServiceInfo si = new ServiceInfo();
+        MainPage mn = new MainPage();
+        si.setVisible(true);
+        mn.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

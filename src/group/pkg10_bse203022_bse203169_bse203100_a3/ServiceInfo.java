@@ -90,13 +90,13 @@ public class ServiceInfo extends JFrame {
         JButton newButton = new JButton("New");
         JButton saveButton = new JButton("Save");
         JButton deleteButton = new JButton("Delete");
-        JButton updateButton = new JButton("Update");
+        JButton BackButton = new JButton("Back");
         JButton getDataButton = new JButton("Get Data");
 
         newButton.setPreferredSize(new Dimension(100, 40));
         saveButton.setPreferredSize(new Dimension(100, 40));
         deleteButton.setPreferredSize(new Dimension(100, 40));
-        updateButton.setPreferredSize(new Dimension(100, 40));
+        BackButton.setPreferredSize(new Dimension(100, 40));
         getDataButton.setPreferredSize(new Dimension(100, 40));
 
         saveButton.addActionListener(new ActionListener() {
@@ -107,7 +107,15 @@ public class ServiceInfo extends JFrame {
                 tableModel.addRow(new Object[]{patientID, patientName});
             }
         });
-
+        BackButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                ServiceInfo si = new ServiceInfo();
+                MainPage mn = new MainPage();
+                si.setVisible(false);
+                mn.setVisible(true);
+                dispose();
+            }
+        });
         gbc.gridx = 0;
         gbc.gridy = 0;
         panel2.add(newButton, gbc);
@@ -119,7 +127,7 @@ public class ServiceInfo extends JFrame {
         panel2.add(deleteButton, gbc);
 
         gbc.gridy = 3;
-        panel2.add(updateButton, gbc);
+        panel2.add(BackButton, gbc);
 
         gbc.gridy = 4;
         panel2.add(getDataButton, gbc);
