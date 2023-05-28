@@ -32,7 +32,7 @@ public class DoctorPatientInfo extends JFrame {
     private JButton newButton;
     private JButton saveButton;
     private JButton deleteButton;
-    private JButton updateButton;
+    private JButton BackButton;
     private JButton getDataButton;
 
     public DoctorPatientInfo() {
@@ -94,8 +94,8 @@ public class DoctorPatientInfo extends JFrame {
         deleteButton = new JButton("Delete");
         panel2.add(deleteButton);
 
-        updateButton = new JButton("Update");
-        panel2.add(updateButton);
+        BackButton = new JButton("Back");
+        panel2.add(BackButton);
 
         getDataButton = new JButton("Get Data");
         panel2.add(getDataButton);
@@ -151,10 +151,14 @@ public class DoctorPatientInfo extends JFrame {
             }
         });
 
-        updateButton.addActionListener(new ActionListener() {
+        BackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateData();
+                PatientDetails pat = new PatientDetails();
+                pat.setVisible(false);
+                MainPage p = new MainPage();
+                p.setVisible(true);
+                dispose();
             }
         });
 
