@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package group.pkg10_bse203022_bse203169_bse203100_a3;
+package group.bse203100_a3;
 
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Osaf Ahmed
+ * @author Saqi
  */
 public class DAO_for_Room {
     
