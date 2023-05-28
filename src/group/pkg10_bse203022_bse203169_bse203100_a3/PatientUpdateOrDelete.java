@@ -246,6 +246,11 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(102, 102, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setText("New");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 110, -1));
 
         jButton5.setBackground(new java.awt.Color(0, 153, 153));
@@ -364,7 +369,7 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
         dao.PatientUpdateOrDeleteInsert(PatientID, PatentName, Gender, BloodGroup, Disease, RoomNo, DoctorId, DoctorName, DischargeDate, AdmintDate, RoomNumber, NoOfDetails, TotalRoomCharges, ServiceCharges, BillDate, PaymentMode, TotalCharges, BillNumber);
         arr = new Object[]{PatientID, PatentName, ServiceCharges};
         addrow(arr);
-        clearScren();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -396,6 +401,11 @@ public class PatientUpdateOrDelete extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Table is empty");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        clearScren();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
